@@ -22,10 +22,22 @@ router.get('/', (req, res) => {
         message: 'Error Finding the Actions',
       });
     });
-  });
+});
+  
+// router.post('/', (req, res) => {
+//     Actions.insert(req.body)
+//         .then(action => {
+//             res.status(201).json(action)
+//         })
+//         .catch(err => {
+//             res.status(500).json({
+//             message: "Failed to create"
+//         })
+//     })
+//     })
 
 router.post('/', validateAction, (req, res) => {
-    Actions.insert(req.action)
+    Actions.insert(req.body)
     .then(action => {
       res.status(201).json(action);
     })
@@ -85,7 +97,7 @@ function validateActionId(req, res, next) {
         req.action = action;
         next();
       } else {
-        next({code: 400, message: "Missing required note field"});
+        next({code: 400, message: "Missing required notes field"});
       }
     } else {
       next({code: 400, message: "Missing action data"});
