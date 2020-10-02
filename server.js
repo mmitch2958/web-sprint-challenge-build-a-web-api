@@ -14,7 +14,7 @@ function greeter(req, res, next) {
   
 
 server.use(express.json());
-// server.use(helmet());
+server.use(helmet());
 
 server.use(logger);
 server.use(greeter);
