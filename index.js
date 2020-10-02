@@ -12,3 +12,12 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+
+const server = require('./server.js')
+
+const port = process.env.PORT || 5001;
+
+server.listen(port, () => console.log('server running'))
+server.get('/', (req, res) => {
+    res.status(200).json({ hello: "hello world2", environment: NODE_ENV })
+})
