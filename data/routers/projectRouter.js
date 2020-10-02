@@ -94,10 +94,7 @@ function validateProjectId(req, res, next) {
     })
   }
   
-  
-  
-  
-  
+
   function validateProject(req, res, next) {
    
     if(req.body) {
